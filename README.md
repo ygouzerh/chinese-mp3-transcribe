@@ -70,3 +70,6 @@ Output:
 - Simplified chinese: 你好，你叫什么名字？
 - Translation in english: Hello, what is your name?
 ```
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
