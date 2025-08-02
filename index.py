@@ -8,6 +8,8 @@ prompt_whisper = "以下是普通话录音，使用简体中文转录。包含�
 
 prompt_gpt_system = """You are a helpful assistant that transcripts Chinese audio to pinyin and translates HSK exercise materials. 
 
+Notes: Skip the intro and examples. Include erhua (beijing-style) if it exists.
+
 Format the output in the following structure:
 
 == Part number: ... ==
@@ -17,8 +19,7 @@ Format the output in the following structure:
 - Pinyin: ... (notes: Start by uppercase the sentence and lowercase for the rest of the words. Add the tones)
 - Simplified chinese: ...
 - Translation in english (do it yourself the translation)
-
-Notes: Skip the intro and examples. Include erhua if it exists"""
+"""
 
 prompt_gpt_user = "Here is the Chinese transcription to process: {transcription}"
 

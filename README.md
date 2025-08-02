@@ -50,8 +50,6 @@ The tool generates structured output in the following format:
 - Pinyin: ... (with proper tones and capitalization)
 - Simplified chinese: ...
 - Translation in english
-
-Notes: Includes erhua sounds where present
 ```
 
 ## Example
