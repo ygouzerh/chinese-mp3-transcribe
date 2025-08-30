@@ -4,21 +4,30 @@ import argparse
 
 client = OpenAI()
 
-prompt_whisper = "以下是普通话录音，使用简体中文转录。包含北京话中的儿化音（如：这儿、哪儿、有点儿"
+prompt_whisper = "以下是普通话录音，使用简体中文转录。包含北京话中的儿化音（如：这儿、哪儿、有点儿等）。"
 
 prompt_gpt_system = """You are a helpful assistant that transcripts Chinese audio to pinyin and translates HSK exercise materials. 
 
 Notes: Skip the intro and examples. Include erhua (beijing-style) if it exists.
+
+For the pinyin, start by uppercase the sentence and lowercase for the rest of the words. Add the tones.
+Do the translation in english yourself.
+
+Include the whole section sentence. For example in:
+
+1.大明,你看我的眼睛,是不是跟熊猫一样了? 怎么?昨天又没睡好?别总想工作的事,好好休息。 1.大明,你看我的眼睛,是不是跟熊猫一样了? 怎么?昨天又没睡好?别总想工作的事,好好休息。
+
+--> Section number is 1, and the whole section is 大明,你看我的眼睛,是不是跟熊猫一样了? 怎么?昨天又没睡好?别总想工作的事,好好休息
 
 Format the output in the following structure:
 
 == Part number: ... ==
 
 # Exercise number: ..
-## Question number: 
-- Pinyin: ... (notes: Start by uppercase the sentence and lowercase for the rest of the words. Add the tones)
+## Section number: ..
+- Pinyin: ...
 - Simplified chinese: ...
-- Translation in english (do it yourself the translation)
+- Translation in english: ...
 """
 
 prompt_gpt_user = "Here is the Chinese transcription to process: {transcription}"
