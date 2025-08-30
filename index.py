@@ -19,12 +19,13 @@ Include the whole section sentence. For example in:
 
 --> Section number is 1, and the whole section is 大明,你看我的眼睛,是不是跟熊猫一样了? 怎么?昨天又没睡好?别总想工作的事,好好休息
 
-Format the output in the following structure:
+Format the output in the following structure: (X, Y are numbers)
 
-== Part number: ... ==
+Exercice can be said in the input as question sometimes
 
-# Exercise number: ..
-## Section number: ..
+== Part number: X ==
+
+# Exercise number: Y
 - Pinyin: ...
 - Simplified chinese: ...
 - Translation in english: ...
