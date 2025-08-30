@@ -25,7 +25,7 @@ prompt_gpt_user = "Here is the Chinese transcription to process: {transcription}
 
 parser = argparse.ArgumentParser(description="Transcribe Chinese audio to HSK exercise format")
 parser.add_argument("mp3_file_path", help="Path to the MP3 file to transcribe")
-parser.add_argument("--model", default="gpt-4o", help="OpenAI model to use for processing (default: gpt-4o)")
+parser.add_argument("--model", default="gpt-5-mini", help="OpenAI model to use for processing (default: gpt-5-mini)")
 
 args = parser.parse_args()
 
@@ -44,8 +44,8 @@ transcription = client.audio.transcriptions.create(
     prompt=prompt_whisper,
 )
 
-print("Processing transcription with GPT-4o...", file=sys.stderr)
-# Add GPT-4o call to process the transcription
+print("Processing transcription with LLM...", file=sys.stderr)
+# Add LLM call to process the transcription
 gpt_response = client.chat.completions.create(
     model=args.model,
     messages=[
