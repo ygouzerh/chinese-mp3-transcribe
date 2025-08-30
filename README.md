@@ -99,6 +99,16 @@ Output:
 - Simplified chinese: 你好，你叫什么名字？
 - Translation in english: Hello, what is your name?
 ```
+
+## Additional tricks
+
+### How to get an audio trimmed until a certain blank:
+
+```
+ffmpeg -i 10.mp3 -af silencedetect=noise=-30dB:d=5 -f null - 2>&1 | grep silence_end | awk 'NR==6' | awk -F ' ' '{print int($5)-int(8)+1}' | xargs -I {} ffmpeg -i 10.mp3 -ss 00:00:00 -t {} output.mp3
+```
+*Will stop just before the silence number 6 of the file 10.mp3*
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
