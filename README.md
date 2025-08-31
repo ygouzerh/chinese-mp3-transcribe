@@ -109,6 +109,14 @@ ffmpeg -i 10.mp3 -af silencedetect=noise=-30dB:d=5 -f null - 2>&1 | grep silence
 ```
 *Will stop just before the silence number 6 of the file 10.mp3*
 
+### Generate one pdf per lesson
+
+```
+for f in *.txt; do
+  paps --paper=a4 --font="Noto Sans CJK SC 11" "$f" | ps2pdf - "${f%.txt}.pdf"
+done
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
