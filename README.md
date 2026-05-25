@@ -9,6 +9,8 @@ A Python tool that transcribes Chinese audio files and formats them into HSK exe
 - `uv` package manager
 - `openai` Python package
 - `just` command runner (for batch processing)
+- `ps2pdf`convert text in pdf (optional), with supports for chinese characters
+  - On MacOS: `brew install ghostscript`
 
 ## Installation
 
@@ -111,11 +113,11 @@ ffmpeg -i 10.mp3 -af silencedetect=noise=-30dB:d=5 -f null - 2>&1 | grep silence
 
 ### Generate one pdf per lesson
 
+```bash
+just pdf <transcribe_folder_path>
 ```
-for f in *.txt; do
-  paps --paper=a4 --font="Noto Sans CJK SC 11" "$f" | ps2pdf - "${f%.txt}.pdf"
-done
-```
+
+This combines all parts (e.g. `02-1.txt`, `02-2.txt`, `02-3.txt`) into a single `02.pdf` per lesson, with a page break between each part.
 
 ## License
 

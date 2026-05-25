@@ -12,3 +12,5 @@ wheels/
 # Project based
 mp3/*.mp3
 transcribe/*.txt
+*.pdf
+mp3-temp/
