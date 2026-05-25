@@ -29,7 +29,6 @@ export -f process_file
 # Process MP3 files with parallelization
 find "$folder_path" -name "*.mp3" -print0 | \
 xargs -0 -I {} basename {} .mp3 | \
-awk '{if ($1 > 8) print $1}' | \
 xargs -I {} -P "$parallel_jobs" bash -c 'process_file "$@"' _ {} "$folder_path"
 
 echo "Transcription complete! Check the transcribe/ directory for results."
