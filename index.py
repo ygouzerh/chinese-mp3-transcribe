@@ -35,7 +35,7 @@ prompt_gpt_user = "Here is the Chinese transcription to process: {transcription}
 
 parser = argparse.ArgumentParser(description="Transcribe Chinese audio to HSK exercise format")
 parser.add_argument("mp3_file_path", help="Path to the MP3 file to transcribe")
-parser.add_argument("--model", default="gpt-5.5", help="OpenAI model to use for processing (default: gpt-5.5)")
+parser.add_argument("--model", default="gpt-5.6-terra", help="OpenAI model to use for processing (default: gpt-5.6-terra)")
 
 args = parser.parse_args()
 
@@ -47,7 +47,7 @@ audio_file = open(mp3_file_path, "rb")
 
 print("Transcribing audio...", file=sys.stderr)
 transcription = client.audio.transcriptions.create(
-    model="gpt-4o-transcribe",
+    model="gpt-transcribe",
     file=audio_file,
     language="zh",
     response_format="text",
